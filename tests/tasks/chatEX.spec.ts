@@ -25,10 +25,10 @@ test('verify chat functionality between two users', async ({ browser }) => {
         await user1Page.waitForTimeout(2000); // Wait for the room to be created
         console.log('User 1 created a room and entered the chat.');
 
-        // Get the room URL
+        
         const roomURL = user1Page.url();
 
-        // User 2 joins the room
+       
         await user2Page.goto(roomURL);
         await user2Page.locator('#X8712').fill('User2');
         await user2Page.locator('#X6668').click();
@@ -42,12 +42,12 @@ test('verify chat functionality between two users', async ({ browser }) => {
       
         // await expect(user2Page.locator('//p[contains(text(),"user1")]')).toContainText('Hello from User 1!');
 
-        // User 2 responds
+        
         await user2Page.locator('#X9225').fill('Hi User 1, got your message!');
         await user2Page.keyboard.press('Enter');
         await user1Page.waitForTimeout(1000); 
 
-        // Verify User 1 sees the response
+        
         // await expect(user1Page.locator('.message-text')).toContainText('Hi User 1, got your message!');
 
         await user1Page.locator('#X9225').fill('I just finished the report. How about you?');
